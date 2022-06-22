@@ -7,11 +7,26 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [Header("Prefab & Spawn Point")]
     public GameObject ball;
+    public List<GameObject> ballList;
     public GameObject[] spawnPoints;
+    [Header("Layer Mask")]
+    public LayerMask Side1Obs;
+    public LayerMask Side2Obs;
+    public LayerMask Top1Obs;
+    public LayerMask Top2Obs;
+    public LayerMask Grounds;
+    [Header("Var")]
+    public float seconds;
+    public float timer;
+    public int maxBall;
+    public float SiderCheckRadius = 0.3f;
+    [Header("Boolean")]
+    public bool isSpawn;
+    
     // Start is called before the first frame update
     private void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             Destroy(gameObject);
         }
@@ -23,12 +38,18 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SpawnerBall();
+        ballList = new List<GameObject>();
+        isSpawn = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        timer -= Time.deltaTime;
+        seconds = Mathf.FloorToInt(timer % 60);
+        if (seconds % 5 == 0 && !isSpawn)
+        {
+            SpawnerBall();
+        }
     }
     public void SpawnerBall()
     {
@@ -36,9 +57,20 @@ public class GameManager : MonoBehaviour
     }
     public IEnumerator SpawnBall()
     {
+        isSpawn = true;
         yield return new WaitForSeconds(5);
         int randSpawn = Random.Range(0, spawnPoints.Length);
         GameObject Spawners = Instantiate(ball, spawnPoints[randSpawn].transform.position, Quaternion.identity);
-
+        ballList.Add(Spawners);
+        if (ballList.Count >= maxBall)
+        {
+            isSpawn = true;
+        }
+        else
+        {
+            isSpawn = false;
+        }
     }
+    
+
 }
