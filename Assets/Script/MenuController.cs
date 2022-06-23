@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void SingleGame()
     {
-        
+        GameData.instance.isDlc = false;
+        SceneManager.LoadScene("Gameplay");
+        Debug.Log("Created by Erzhanto - 149251970101-196");
     }
-
-    // Update is called once per frame
-    void Update()
+    public void MultiGame()
     {
-        
+        GameData.instance.isDlc = true;
+        SceneManager.LoadScene("DLC");
+        Debug.Log("Created by Erzhanto - 149251970101-196");
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    public void Menu()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 }
