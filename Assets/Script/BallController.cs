@@ -21,6 +21,7 @@ public class BallController : MonoBehaviour
     public bool isTop2;
     public bool isSide1;
     public bool isSide2;
+
     void Start()
     {
         instance = this;
@@ -33,6 +34,7 @@ public class BallController : MonoBehaviour
         isTop2 = CheckTouchTop2();
         isSide1 = CheckTouchSide1();
         isSide2 = CheckTouchSide2();
+        
         if (isSide1)
         {
             rb.velocity = sideDirect1 * spd;
@@ -55,6 +57,10 @@ public class BallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(ScoreManager.instance.isGameOver == true)
+        {
+            Destroy(this.gameObject);
+        }
         if(rb.velocity.magnitude > maxSpd)
         {
             rb.velocity = rb.velocity.normalized * 8;

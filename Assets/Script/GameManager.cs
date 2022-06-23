@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     {
         timer -= Time.deltaTime;
         seconds = Mathf.FloorToInt(timer % 60);
-        if (seconds % 3 == 0 && !isSpawn)
+        if (seconds % 3 == 0 && !isSpawn && ballList.Count < maxBall && ScoreManager.instance.isGameOver == false)
         {
             StartCoroutine("SpawnBall");
             
@@ -60,17 +60,7 @@ public class GameManager : MonoBehaviour
         isList = Instantiate(ball, spawnPoints[randSpawn].transform.position, Quaternion.identity);
         ballList.Add(isList);
         yield return new WaitForSeconds(1);
-        if (ballList.Count >= maxBall)
-        {
-            isSpawn = true;
-            
-            
-        }
-        
-        else
-        {
-            isSpawn = false;
-        }
+        isSpawn = false;
     }
     public void RemoveListz()
     {

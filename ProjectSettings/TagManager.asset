@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Wall
   - Ball
+  - Goal
+  - Paddle
   - Goal1
   - Goal2
   - Goal3

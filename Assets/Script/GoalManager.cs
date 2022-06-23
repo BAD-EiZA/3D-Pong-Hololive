@@ -9,6 +9,13 @@ public class GoalManager : MonoBehaviour
     public bool sideP2;
     public bool sideP3;
     public bool sideP4;
+    
+
+    private void Start()
+    {
+        
+
+    }
 
     private void OnCollisionEnter(Collision other)
     {
@@ -17,9 +24,18 @@ public class GoalManager : MonoBehaviour
         {
             if (sideP1)
             {
-                CameraShake.instance.isShaking = true;
-                ScoreManager.instance.AddPlayer1Score(1);
-                GameManager.instance.isRemoveList = true;
+                if(ScoreManager.instance.player1Score < ScoreManager.instance.maxScore)
+                {
+                    CameraShake.instance.isShaking = true;
+                    ScoreManager.instance.AddPlayer1Score(1);
+                    GameManager.instance.isRemoveList = true;
+                }
+                else
+                {
+                    CameraShake.instance.isShaking = true;
+                    GameManager.instance.isRemoveList = true;
+                }
+                
 
             }
             if (sideP2)

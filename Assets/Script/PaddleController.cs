@@ -17,14 +17,22 @@ public class PaddleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlayerSide)
+        if(ScoreManager.instance.isGameOver == false)
         {
-            GetInputSide();
+            if (isPlayerSide)
+            {
+                GetInputSide();
+            }
+            else
+            {
+                GetInputTop();
+            }
         }
         else
         {
-            GetInputTop();
+            rb.velocity = Vector3.zero;
         }
+        
     }
     private Vector3 GetInputTop()
     {
