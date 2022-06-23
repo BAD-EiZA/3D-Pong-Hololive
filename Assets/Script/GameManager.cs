@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject ball;
     public List<GameObject> ballList;
     public GameObject[] spawnPoints;
+    public GameObject isList;
     [Header("Layer Mask")]
     public LayerMask Side1Obs;
     public LayerMask Side2Obs;
@@ -22,57 +23,61 @@ public class GameManager : MonoBehaviour
     [Header("Boolean")]
     public bool isSpawn;
     public bool isShake;
+    public bool isRemoveList;
 
 
     // Start is called before the first frame update
     private void Awake()
     {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-        }
+        
     }
     private void Start()
     {
-        SpawnerBall();
+        instance = this;
         ballList = new List<GameObject>();
         isSpawn = false;
+        isRemoveList = false;
     }
 
     void Update()
     {
         timer -= Time.deltaTime;
         seconds = Mathf.FloorToInt(timer % 60);
-        if (seconds % 5 == 0 && !isSpawn)
+        if (seconds % 3 == 0 && !isSpawn)
         {
-            SpawnerBall();
+            StartCoroutine("SpawnBall");
+            
+            
         }
-    }
-    public void SpawnerBall()
-    {
-        StartCoroutine("SpawnBall");
+        
+        
+        Debug.Log("Index : " + ballList.Count);
     }
     public IEnumerator SpawnBall()
     {
         isSpawn = true;
-        yield return new WaitForSeconds(5);
         int randSpawn = Random.Range(0, spawnPoints.Length);
-        GameObject Spawners = Instantiate(ball, spawnPoints[randSpawn].transform.position, Quaternion.identity);
-        ballList.Add(Spawners);
+        isList = Instantiate(ball, spawnPoints[randSpawn].transform.position, Quaternion.identity);
+        ballList.Add(isList);
+        yield return new WaitForSeconds(1);
         if (ballList.Count >= maxBall)
         {
             isSpawn = true;
+            
+            
         }
+        
         else
         {
             isSpawn = false;
         }
     }
+    public void RemoveListz()
+    {
+        ballList.Remove(gameObject);
+        Destroy(this.gameObject);
+    }
 
-    
+
 
 }

@@ -60,7 +60,7 @@ public class BallController : MonoBehaviour
             rb.velocity = rb.velocity.normalized * 8;
         }
         
-        Debug.Log("Speed : " + rb.velocity.magnitude);
+        //Debug.Log("Speed : " + rb.velocity.magnitude);
     }
     public bool CheckTouchTop1()
     {
@@ -78,17 +78,46 @@ public class BallController : MonoBehaviour
     {
         return Physics.CheckSphere(SiderCheck.position, GameManager.instance.SiderCheckRadius, GameManager.instance.Side2Obs);
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.CompareTag("Wall"))
+        if (other.gameObject.tag == "Wall")
         {
             rb.velocity *= 2;
         }
-        //if (other.CompareTag("Goal1"))
-        //{
-            //ScoreManager.instance.AddPlayer1Score(1);
-        //}
-        
+        if(other.gameObject.tag == "Paddle")
+        {
+            rb.velocity *= 2;
+        }
+        else if(other.gameObject.tag == "Goal1")
+        {
+            CameraShake.instance.isShaking = true;
+            ScoreManager.instance.AddPlayer1Score(1);
+            GameManager.instance.ballList.Remove(GameManager.instance.isList);
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.tag == "Goal2")
+        {
+            CameraShake.instance.isShaking = true;
+            ScoreManager.instance.AddPlayer2Score(1);
+            GameManager.instance.ballList.Remove(GameManager.instance.isList);
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.tag == "Goal3")
+        {
+            CameraShake.instance.isShaking = true;
+            ScoreManager.instance.AddPlayer3Score(1);
+            GameManager.instance.ballList.Remove(GameManager.instance.isList);
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.tag == "Goal4")
+        {
+            CameraShake.instance.isShaking = true;
+            ScoreManager.instance.AddPlayer4Score(1);
+            GameManager.instance.ballList.Remove(GameManager.instance.isList);
+            Destroy(gameObject);
+        }
+
     }
+    
 
 }
