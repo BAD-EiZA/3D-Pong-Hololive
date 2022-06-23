@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6495146618218436925}
   - component: {fileID: 6495146618218436924}
   - component: {fileID: 4151418990054585773}
-  - component: {fileID: 1135117302402526556}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -97,8 +96,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.49823648
+  m_Center: {x: -0.009003034, y: 0.0069198515, z: 0}
 --- !u!54 &6495146618218436924
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -130,23 +129,11 @@ MonoBehaviour:
   SiderCheck: {fileID: 4193559896458290692}
   spd: 2
   rb: {fileID: 6495146618218436924}
+  maxSpd: 0
   isTop1: 0
   isTop2: 0
   isSide1: 0
   isSide2: 0
---- !u!135 &1135117302402526556
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6495146618218436914}
-  m_Material: {fileID: 13400000, guid: d5e0e4e0f9b191644a84d745de7f4d79, type: 2}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.48675695
-  m_Center: {x: 0.006230921, y: -0.007012083, z: 0}
 --- !u!1 &7836704214674621798
 GameObject:
   m_ObjectHideFlags: 0

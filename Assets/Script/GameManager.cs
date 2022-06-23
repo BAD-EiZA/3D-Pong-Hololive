@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     public LayerMask Side2Obs;
     public LayerMask Top1Obs;
     public LayerMask Top2Obs;
-    public LayerMask Grounds;
     [Header("Var")]
     public float seconds;
     public float timer;
@@ -22,7 +21,9 @@ public class GameManager : MonoBehaviour
     public float SiderCheckRadius = 0.3f;
     [Header("Boolean")]
     public bool isSpawn;
-    
+    public bool isShake;
+
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -71,6 +72,7 @@ public class GameManager : MonoBehaviour
             isSpawn = false;
         }
     }
+
     
 
 }

@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wall
+  - Ball
+  - Goal1
+  - Goal2
+  - Goal3
+  - Goal4
   layers:
   - Default
   - TransparentFX
@@ -11,11 +17,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Top1
+  - Top2
+  - Side1
+  - Side2
+  - Ground
   - 
   - 
   - 

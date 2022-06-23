@@ -15,14 +15,12 @@ public class BallController : MonoBehaviour
     public Transform SiderCheck;
     public float spd;
     public Rigidbody rb;
+    public float maxSpd;
     [Header("Boolean")]
     public bool isTop1;
     public bool isTop2;
     public bool isSide1;
     public bool isSide2;
-
-
-    // Start is called before the first frame update
     void Start()
     {
         instance = this;
@@ -57,6 +55,10 @@ public class BallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(rb.velocity.magnitude > maxSpd)
+        {
+            rb.velocity = rb.velocity.normalized * 8;
+        }
         
         Debug.Log("Speed : " + rb.velocity.magnitude);
     }
@@ -76,23 +78,17 @@ public class BallController : MonoBehaviour
     {
         return Physics.CheckSphere(SiderCheck.position, GameManager.instance.SiderCheckRadius, GameManager.instance.Side2Obs);
     }
-    public void SpeedBall()
-    {
-        rb.velocity *= 2;
-        StartCoroutine("ResetSpd");
-    }
-    public IEnumerator ResetSpd()
-    {
-        yield return new WaitForSeconds(2);
-        rb.velocity = rb.velocity.normalized * 6;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Wall"))
         {
-            SpeedBall();
+            rb.velocity *= 2;
         }
+        //if (other.CompareTag("Goal1"))
+        //{
+            //ScoreManager.instance.AddPlayer1Score(1);
+        //}
+        
     }
 
 }
