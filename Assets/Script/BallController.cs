@@ -26,10 +26,10 @@ public class BallController : MonoBehaviour
     {
         instance = this;
         rb = GetComponent<Rigidbody>();
-        sideDirect1 = new Vector3(2f, 0, 2f);
-        sideDirect2 = new Vector3(-2f, 0, 2f);
-        topDirect1 = new Vector3(2f, 0, -2f);
-        topDirect2 = new Vector3(-2f, 0, -2f);
+        sideDirect1 = new Vector3(Random.Range(2f,5f), 0, 2f);
+        sideDirect2 = new Vector3(Random.Range(-2f,-5f), 0, 2f);
+        topDirect1 = new Vector3(Random.Range(2f,5f), 0, -2f);
+        topDirect2 = new Vector3(Random.Range(-2f,-5f), 0, -2f);
         isTop1 = CheckTouchTop1();
         isTop2 = CheckTouchTop2();
         isSide1 = CheckTouchSide1();
