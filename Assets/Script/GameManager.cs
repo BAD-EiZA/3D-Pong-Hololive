@@ -61,13 +61,25 @@ public class GameManager : MonoBehaviour
         ballList.Add(isList);
         yield return new WaitForSeconds(1);
         isSpawn = false;
+        if(ballList.Count >= maxBall)
+        {
+            yield return new WaitForSeconds(5);
+            RemoveAllListBall();
+        }
+        
     }
-    public void RemoveListz()
+    public void RemoveListz(GameObject law)
     {
-        ballList.Remove(gameObject);
-        Destroy(this.gameObject);
+        ballList.Remove(law);
+        Destroy(law);
     }
-
+    public void RemoveAllListBall()
+    {
+        while (ballList.Count > 0)
+        {
+            RemoveListz(ballList[0]);
+        }
+    }
 
 
 }
