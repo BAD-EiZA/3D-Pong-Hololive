@@ -89,23 +89,34 @@ public class BallController : MonoBehaviour
         if (other.gameObject.tag == "Wall")
         {
             rb.velocity *= 2;
+            SoundManager.instance.BallBounces();
         }
         if(other.gameObject.tag == "Paddle")
         {
             rb.velocity *= 2;
+            SoundManager.instance.BallBounces();
         }
         else if(other.gameObject.tag == "Goal1")
         {
             CameraShake.instance.isShaking = true;
             ScoreManager.instance.AddPlayer1Score(1);
             GameManager.instance.ballList.Remove(GameManager.instance.isList);
+            if(GameData.instance.isDlc == true)
+            {
+                SoundManager.instance.OkayuGoals();
+            }
+            
             Destroy(gameObject);
         }
         else if (other.gameObject.tag == "Goal2")
         {
             CameraShake.instance.isShaking = true;
             ScoreManager.instance.AddPlayer2Score(1);
-            GameManager.instance.ballList.Remove(GameManager.instance.isList);
+            GameManager.instance.ballList.Remove(GameManager.instance.isList);;
+            if (GameData.instance.isDlc == true)
+            {
+                SoundManager.instance.WatsonGoals();
+            }
             Destroy(gameObject);
         }
         else if (other.gameObject.tag == "Goal3")
@@ -113,6 +124,10 @@ public class BallController : MonoBehaviour
             CameraShake.instance.isShaking = true;
             ScoreManager.instance.AddPlayer3Score(1);
             GameManager.instance.ballList.Remove(GameManager.instance.isList);
+            if (GameData.instance.isDlc == true)
+            {
+                SoundManager.instance.GuraGoals();
+            }
             Destroy(gameObject);
         }
         else if (other.gameObject.tag == "Goal4")
@@ -120,6 +135,10 @@ public class BallController : MonoBehaviour
             CameraShake.instance.isShaking = true;
             ScoreManager.instance.AddPlayer4Score(1);
             GameManager.instance.ballList.Remove(GameManager.instance.isList);
+            if (GameData.instance.isDlc == true)
+            {
+                SoundManager.instance.MioGoals();
+            }
             Destroy(gameObject);
         }
 

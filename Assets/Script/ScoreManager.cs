@@ -57,16 +57,19 @@ public class ScoreManager : MonoBehaviour
             {
                 UIManager.instance.P2WinUI.SetActive(true);
                 isGameOver = true;
+                SoundManager.instance.WatsonWins();
             }
             if (isP3Win)
             {
                 UIManager.instance.P3WinUI.SetActive(true);
                 isGameOver = true;
+                SoundManager.instance.GuraWins();
             }
             if (isP4Win)
             {
                 UIManager.instance.P4WinUI.SetActive(true);
                 isGameOver = true;
+                SoundManager.instance.MioWins();
             }
         }
     }

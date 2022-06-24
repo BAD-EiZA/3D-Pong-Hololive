@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     {
         timer -= Time.deltaTime;
         seconds = Mathf.FloorToInt(timer % 60);
-        if (seconds % 3 == 0 && !isSpawn && ballList.Count < maxBall && ScoreManager.instance.isGameOver == false)
+        if (seconds % 2 == 0 && !isSpawn && ballList.Count < maxBall && ScoreManager.instance.isGameOver == false)
         {
             StartCoroutine("SpawnBall");
             
