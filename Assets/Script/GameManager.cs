@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
     public void RemoveListz(GameObject law)
     {
         ballList.Remove(law);
-        Destroy(law);
+        
     }
     public void RemoveAllListBall()
     {

@@ -3085,6 +3085,9 @@ MonoBehaviour:
   ball: {fileID: 6495146618218436914, guid: 319de219180ed59489a0779f09409cee, type: 3}
   ballList: []
   spawnPoints:
+  - {fileID: 1842140280}
+  - {fileID: 1134294053}
+  - {fileID: 2060138289}
   - {fileID: 718330088}
   isList: {fileID: 0}
   Side1Obs:
