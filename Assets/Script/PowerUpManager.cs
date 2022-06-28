@@ -51,7 +51,7 @@ public class PowerUpManager : MonoBehaviour
     public void RemovePowerz(GameObject lawz)
     {
         PowerList.Remove(lawz);
-
+        Destroy(lawz);
     }
     public void RemoveAllPower()
     {

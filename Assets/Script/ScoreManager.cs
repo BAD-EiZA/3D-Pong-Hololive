@@ -82,13 +82,13 @@ public class ScoreManager : MonoBehaviour
                 player1Score += value;
                 UIManager.instance.Player1ScoreUI.text = player1Score.ToString();
             }
-            if (player1Score == maxScore)
+            if (!isGameOver && player1Score == maxScore)
             {
                 countPlayer += 1;
                 isP1Win = false;
                 anim1.SetTrigger("Lose");
-
             }
+            
         }
     }
     public void AddPlayer2Score(int value)
@@ -100,7 +100,7 @@ public class ScoreManager : MonoBehaviour
                 player2Score += value;
                 UIManager.instance.Player2ScoreUI.text = player2Score.ToString();
             }
-            if (player2Score == maxScore)
+            if (!isGameOver && player2Score == maxScore)
             {
                 countPlayer += 1;
                 isP2Win = false;
@@ -118,7 +118,7 @@ public class ScoreManager : MonoBehaviour
                 player3Score += value;
                 UIManager.instance.Player3ScoreUI.text = player3Score.ToString();
             }
-            if (player3Score == maxScore)
+            if (!isGameOver && player3Score == maxScore)
             {
                 countPlayer += 1;
                 isP3Win = false;
@@ -136,7 +136,7 @@ public class ScoreManager : MonoBehaviour
                 player4Score += value;
                 UIManager.instance.Player4ScoreUI.text = player4Score.ToString();
             }
-            if (player4Score == maxScore)
+            if (!isGameOver && player4Score == maxScore)
             {
                 countPlayer += 1;
                 isP4Win = false;

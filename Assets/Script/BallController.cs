@@ -106,7 +106,7 @@ public class BallController : MonoBehaviour
         if (other.gameObject.tag == "Wall")
         {
             isTouch = true;
-            rb.velocity = rb.velocity.normalized * 15;
+            rb.velocity = rb.velocity.normalized * 12;
             SoundManager.instance.BallBounces();
             StartCoroutine("SlowBall");
         }
@@ -119,7 +119,7 @@ public class BallController : MonoBehaviour
         if(other.gameObject.tag == "PowerUp1")
         {
             isTouch = true;
-            rb.velocity = rb.velocity.normalized * 20;
+            rb.velocity = rb.velocity.normalized * 15;
             PowerUpManager.instance.PowerList.Remove(PowerUpManager.instance.IsPower);
             StartCoroutine("SlowPower");
             Destroy(other.gameObject);
