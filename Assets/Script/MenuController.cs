@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject canva;
     public void SingleGame()
     {
         GameData.instance.isDlc = false;
@@ -24,5 +26,9 @@ public class MenuController : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+    public void OnCanvaGame()
+    {
+        canva.SetActive(true);
     }
 }
