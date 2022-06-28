@@ -269,7 +269,7 @@ MonoBehaviour:
   SiderCheck: {fileID: 4193559896458290692}
   spd: 2
   rb: {fileID: 6495146618218436924}
-  maxSpd: 15
+  maxSpd: 20
   isTop1: 0
   isTop2: 0
   isSide1: 0

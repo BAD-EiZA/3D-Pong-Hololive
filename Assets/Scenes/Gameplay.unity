@@ -1086,8 +1086,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.99999857, y: 1, z: 0.17173862}
-  m_Center: {x: 0, y: 0, z: -0.4141307}
+  m_Size: {x: 1.0458277, y: 5.0546336, z: 0.17173856}
+  m_Center: {x: -0.001817074, y: 2.0273168, z: -0.41413072}
 --- !u!33 &516271599
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1978,8 +1978,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.99999857, y: 1, z: 0.17173862}
-  m_Center: {x: 0, y: 0, z: -0.4141307}
+  m_Size: {x: 1.0634687, y: 5.118853, z: 0.17173861}
+  m_Center: {x: 0.0018216434, y: 2.0594265, z: -0.4141307}
 --- !u!33 &860542489
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2594,6 +2594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7b75c07122a66443b3a2bb76104a953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canva: {fileID: 0}
 --- !u!4 &983722114
 Transform:
   m_ObjectHideFlags: 0
@@ -3194,7 +3195,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21100001, y: 0.61378765}
   m_AnchorMax: {x: 0.78400004, y: 0.94774336}
-  m_AnchoredPosition: {x: 0.48439, y: 0.96800995}
+  m_AnchoredPosition: {x: 0.48439026, y: 0.96800995}
   m_SizeDelta: {x: 0.61650085, y: -1.9360008}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1210310006
@@ -3627,8 +3628,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.99999857, y: 1, z: 0.17173862}
-  m_Center: {x: 0, y: 0, z: -0.4141307}
+  m_Size: {x: 1.015659, y: 5.0259657, z: 0.17173877}
+  m_Center: {x: 0.0014957566, y: 2.0129828, z: -0.41413045}
 --- !u!33 &1295338578
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4498,8 +4499,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.99999857, y: 1, z: 0.17173862}
-  m_Center: {x: 0, y: 0, z: -0.4141307}
+  m_Size: {x: 1.0205196, y: 5.1893196, z: 0.17173873}
+  m_Center: {x: -0.0051020724, y: 2.0946598, z: -0.41413063}
 --- !u!33 &1545359177
 MeshFilter:
   m_ObjectHideFlags: 0

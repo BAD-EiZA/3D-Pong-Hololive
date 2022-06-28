@@ -12,6 +12,7 @@ TagManager:
   - Goal2
   - Goal3
   - Goal4
+  - PowerUp1
   layers:
   - Default
   - TransparentFX

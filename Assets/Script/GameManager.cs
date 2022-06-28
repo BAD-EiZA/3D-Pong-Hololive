@@ -50,7 +50,8 @@ public class GameManager : MonoBehaviour
             
         }
         
-        
+
+
         Debug.Log("Index : " + ballList.Count);
     }
     public IEnumerator SpawnBall()
@@ -63,11 +64,12 @@ public class GameManager : MonoBehaviour
         isSpawn = false;
         if(ballList.Count >= maxBall)
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(10);
             RemoveAllListBall();
         }
         
     }
+    
     public void RemoveListz(GameObject law)
     {
         ballList.Remove(law);
@@ -80,6 +82,7 @@ public class GameManager : MonoBehaviour
             RemoveListz(ballList[0]);
         }
     }
+    
 
 
 }

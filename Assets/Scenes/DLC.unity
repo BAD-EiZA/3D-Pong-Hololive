@@ -204,6 +204,57 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33385224}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &85234157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 85234158}
+  - component: {fileID: 85234159}
+  m_Layer: 0
+  m_Name: PowerUpManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &85234158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85234157}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 225657797}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &85234159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85234157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1999b8b7d880e940b7d8bde91c5f78a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSpawnPower: 0
+  maxPowerUp: 2
+  seconds: 0
+  timer: 0
+  PowerUp:
+  - {fileID: 374204764276037261, guid: 1335e5ad610ec2f409d665ecb9f10869, type: 3}
+  PowerList: []
+  IsPower: {fileID: 0}
 --- !u!1 &152551644
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +364,7 @@ Transform:
   - {fileID: 1363630121}
   - {fileID: 1158005558}
   - {fileID: 1204582465}
+  - {fileID: 85234158}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1234,8 +1286,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.99999857, y: 1, z: 0.17173862}
-  m_Center: {x: 0, y: 0, z: -0.4141307}
+  m_Size: {x: 1.0474966, y: 5.1839943, z: 0.17173856}
+  m_Center: {x: -0.0037067195, y: 2, z: -0.41413072}
 --- !u!33 &516271599
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2131,8 +2183,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.99999857, y: 1, z: 0.17173862}
-  m_Center: {x: 0, y: 0, z: -0.4141307}
+  m_Size: {x: 1.052925, y: 5.1476755, z: 0.17173861}
+  m_Center: {x: -0.0005919344, y: 2.0738378, z: -0.4141307}
 --- !u!33 &860542489
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3304,6 +3356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7b75c07122a66443b3a2bb76104a953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canva: {fileID: 0}
 --- !u!4 &1204582465
 Transform:
   m_ObjectHideFlags: 0
@@ -3352,7 +3405,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21100001, y: 0.61378765}
   m_AnchorMax: {x: 0.78400004, y: 0.94774336}
-  m_AnchoredPosition: {x: 0.48439, y: 0.96800995}
+  m_AnchoredPosition: {x: 0.48439026, y: 0.96800995}
   m_SizeDelta: {x: 0.61650085, y: -1.9360008}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1210310006
@@ -3641,8 +3694,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.99999857, y: 1, z: 0.17173862}
-  m_Center: {x: 0, y: 0, z: -0.4141307}
+  m_Size: {x: 1.0169684, y: 5.0483828, z: 0.17173867}
+  m_Center: {x: 0.0031173816, y: 2.0241914, z: -0.41413057}
 --- !u!33 &1295338578
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4513,8 +4566,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.99999857, y: 1, z: 0.17173862}
-  m_Center: {x: 0, y: 0, z: -0.4141307}
+  m_Size: {x: 1.0141052, y: 5.055512, z: 0.17173867}
+  m_Center: {x: -0.004234806, y: 2.027756, z: -0.4141306}
 --- !u!33 &1545359177
 MeshFilter:
   m_ObjectHideFlags: 0

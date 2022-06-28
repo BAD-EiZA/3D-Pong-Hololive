@@ -21,19 +21,21 @@ public class BallController : MonoBehaviour
     public bool isTop2;
     public bool isSide1;
     public bool isSide2;
+    public bool isTouch;
 
     void Start()
     {
         instance = this;
         rb = GetComponent<Rigidbody>();
-        sideDirect1 = new Vector3(Random.Range(2f,5f), 0, 2f);
-        sideDirect2 = new Vector3(Random.Range(-2f,-5f), 0, 2f);
-        topDirect1 = new Vector3(Random.Range(2f,5f), 0, -2f);
-        topDirect2 = new Vector3(Random.Range(-2f,-5f), 0, -2f);
+        sideDirect1 = new Vector3(Random.Range(2f,5f), 0, Random.Range(2f,4f));
+        sideDirect2 = new Vector3(Random.Range(-2f,-5f), 0, Random.Range(2f,4f));
+        topDirect1 = new Vector3(Random.Range(2f,5f), 0, Random.Range(-2f, -5f));
+        topDirect2 = new Vector3(Random.Range(-2f,-5f), 0, Random.Range(-2f,-5f));
         isTop1 = CheckTouchTop1();
         isTop2 = CheckTouchTop2();
         isSide1 = CheckTouchSide1();
         isSide2 = CheckTouchSide2();
+        isTouch = false;
         
         if (isSide1)
         {
@@ -57,13 +59,18 @@ public class BallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isTouch)
+        {
+            rb.velocity = rb.velocity.normalized * 9;
+        }
+        
         if(ScoreManager.instance.isGameOver == true)
         {
             Destroy(this.gameObject);
         }
         if(rb.velocity.magnitude > maxSpd)
         {
-            rb.velocity = rb.velocity.normalized * 8;
+            rb.velocity = rb.velocity.normalized * 10;
         }
         
         //Debug.Log("Speed : " + rb.velocity.magnitude);
@@ -84,17 +91,38 @@ public class BallController : MonoBehaviour
     {
         return Physics.CheckSphere(SiderCheck.position, GameManager.instance.SiderCheckRadius, GameManager.instance.Side2Obs);
     }
+    public IEnumerator SlowBall()
+    {
+        yield return new WaitForSeconds(2);
+        isTouch = false;
+    }
+    public IEnumerator SlowPower()
+    {
+        yield return new WaitForSeconds(4);
+        isTouch = false;
+    }
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Wall")
         {
-            rb.velocity *= 2;
+            isTouch = true;
+            rb.velocity = rb.velocity.normalized * 15;
             SoundManager.instance.BallBounces();
+            StartCoroutine("SlowBall");
         }
         if(other.gameObject.tag == "Paddle")
         {
-            rb.velocity *= 2;
+            
             SoundManager.instance.BallBounces();
+            
+        }
+        if(other.gameObject.tag == "PowerUp1")
+        {
+            isTouch = true;
+            rb.velocity = rb.velocity.normalized * 20;
+            PowerUpManager.instance.PowerList.Remove(PowerUpManager.instance.IsPower);
+            StartCoroutine("SlowPower");
+            Destroy(other.gameObject);
         }
         else if(other.gameObject.tag == "Goal1")
         {
