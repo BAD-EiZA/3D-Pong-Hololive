@@ -7,6 +7,8 @@ public class MenuController : MonoBehaviour
 {
     [SerializeField]
     private GameObject canva;
+    [SerializeField]
+    private GameObject title;
     public void SingleGame()
     {
         GameData.instance.isDlc = false;
@@ -30,5 +32,13 @@ public class MenuController : MonoBehaviour
     public void OnCanvaGame()
     {
         canva.SetActive(true);
+    }
+    public void OnTitleGame()
+    {
+        title.SetActive(true);
+    }
+    public void OffTitleGame()
+    {
+        title.SetActive(false);
     }
 }
