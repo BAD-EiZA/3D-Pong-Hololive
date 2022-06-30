@@ -9,30 +9,39 @@ public class PaddleController : MonoBehaviour
     public KeyCode downInput;
     public Rigidbody rb;
     public bool isPlayerSide;
+    public bool isOkayu;
+    public GameObject padOkayu;
     void Start()
     {
+        padOkayu = GameObject.Find("Paddle4");
         rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(ScoreManager.instance.isGameOver == false)
+        if(GameManager.instance.isGameStart == true)
         {
-            if (isPlayerSide)
+            if (ScoreManager.instance.isGameOver == false)
             {
-                GetInputSide();
+                if (isPlayerSide)
+                {
+                    GetInputSide();
+                }
+                else
+                {
+                    GetInputTop();
+                }
             }
             else
             {
-                GetInputTop();
+                if (isOkayu)
+                {
+                    padOkayu.transform.localPosition = new Vector3(-3.07f, -0.4538952f, -6.184f);
+                }
             }
+            
         }
-        else
-        {
-            rb.velocity = Vector3.zero;
-        }
-        
     }
     private Vector3 GetInputTop()
     {

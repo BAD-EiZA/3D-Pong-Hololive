@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public GameObject P2WinUI;
     public GameObject P3WinUI;
     public GameObject P4WinUI;
+    public GameObject countHandler;
     void Start()
     {
         instance = this;

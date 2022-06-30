@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public bool isSpawn;
     public bool isShake;
     public bool isRemoveList;
+    public bool isGameStart;
 
 
     // Start is called before the first frame update
@@ -37,22 +38,23 @@ public class GameManager : MonoBehaviour
         ballList = new List<GameObject>();
         isSpawn = false;
         isRemoveList = false;
+        isGameStart = false;
     }
 
     void Update()
     {
-        timer -= Time.deltaTime;
-        seconds = Mathf.FloorToInt(timer % 60);
-        if (seconds % 2 == 0 && !isSpawn && ballList.Count < maxBall && ScoreManager.instance.isGameOver == false)
+        if (isGameStart)
         {
-            StartCoroutine("SpawnBall");
-            
-            
+            timer -= Time.deltaTime;
+            seconds = Mathf.FloorToInt(timer % 60);
+            if (seconds % 2 == 0 && !isSpawn && ballList.Count < maxBall && ScoreManager.instance.isGameOver == false)
+            {
+                StartCoroutine("SpawnBall");
+
+
+            }
+            Debug.Log("Index : " + ballList.Count);
         }
-        
-
-
-        Debug.Log("Index : " + ballList.Count);
     }
     public IEnumerator SpawnBall()
     {

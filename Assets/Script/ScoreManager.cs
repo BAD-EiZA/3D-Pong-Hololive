@@ -51,25 +51,26 @@ public class ScoreManager : MonoBehaviour
             {
                 UIManager.instance.P1WinUI.SetActive(true);
                 isGameOver = true;
+                CinemachineControllers.instance.anim.Play("Okayu");
                 
             }
             if (isP2Win)
             {
                 UIManager.instance.P2WinUI.SetActive(true);
                 isGameOver = true;
-                SoundManager.instance.WatsonWins();
+                CinemachineControllers.instance.anim.Play("Ame");
             }
             if (isP3Win)
             {
                 UIManager.instance.P3WinUI.SetActive(true);
                 isGameOver = true;
-                SoundManager.instance.GuraWins();
+                CinemachineControllers.instance.anim.Play("Gura");
             }
             if (isP4Win)
             {
                 UIManager.instance.P4WinUI.SetActive(true);
                 isGameOver = true;
-                SoundManager.instance.MioWins();
+                CinemachineControllers.instance.anim.Play("Mio");
             }
         }
     }
