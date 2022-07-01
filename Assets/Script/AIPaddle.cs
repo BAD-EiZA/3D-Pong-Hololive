@@ -11,13 +11,11 @@ public class AIPaddle : MonoBehaviour
     public bool isSingleTake;
     public bool isUp;
     public bool isSide;
-    public bool isOkayu;
     public bool isMio;
     public bool isAme;
     public bool isGura;
     public GameObject padAme;
     public GameObject padMio;
-    public GameObject padOkayu;
     public GameObject padGura;
     public float delayMove;
     private float randPos;
@@ -28,7 +26,6 @@ public class AIPaddle : MonoBehaviour
         padAme = GameObject.Find("Paddle3");
         padGura = GameObject.Find("Paddle1");
         padMio = GameObject.Find("Paddle2");
-        padOkayu = GameObject.Find("Paddle4");
         rb = GetComponent<Rigidbody>();
     }
 

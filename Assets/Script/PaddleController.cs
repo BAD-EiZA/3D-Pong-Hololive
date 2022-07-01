@@ -20,6 +20,10 @@ public class PaddleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameData.instance.isDlc == false)
+        {
+            GameManager.instance.isGameStart = true;
+        }
         if(GameManager.instance.isGameStart == true)
         {
             if (ScoreManager.instance.isGameOver == false)

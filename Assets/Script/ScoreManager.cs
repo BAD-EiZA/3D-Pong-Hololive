@@ -21,6 +21,10 @@ public class ScoreManager : MonoBehaviour
     public GameObject Wall2;
     public GameObject Wall3;
     public GameObject Wall4;
+    public GameObject Pad1;
+    public GameObject Pad2;
+    public GameObject Pad3;
+    public GameObject Pad4;
     public Animator anim1;
     public Animator anim2;
     public Animator anim3;
@@ -51,26 +55,37 @@ public class ScoreManager : MonoBehaviour
             {
                 UIManager.instance.P1WinUI.SetActive(true);
                 isGameOver = true;
-                CinemachineControllers.instance.anim.Play("Okayu");
-                
+                if(GameData.instance.isDlc == true)
+                {
+                    CinemachineControllers.instance.anim.Play("Okayu");
+                }
             }
             if (isP2Win)
             {
                 UIManager.instance.P2WinUI.SetActive(true);
                 isGameOver = true;
-                CinemachineControllers.instance.anim.Play("Ame");
+                if (GameData.instance.isDlc == true)
+                {
+                    CinemachineControllers.instance.anim.Play("Ame");
+                }
             }
             if (isP3Win)
             {
                 UIManager.instance.P3WinUI.SetActive(true);
                 isGameOver = true;
-                CinemachineControllers.instance.anim.Play("Gura");
+                if (GameData.instance.isDlc == true)
+                {
+                    CinemachineControllers.instance.anim.Play("Gura");
+                }
             }
             if (isP4Win)
             {
                 UIManager.instance.P4WinUI.SetActive(true);
                 isGameOver = true;
-                CinemachineControllers.instance.anim.Play("Mio");
+                if (GameData.instance.isDlc == true)
+                {
+                    CinemachineControllers.instance.anim.Play("Mio");
+                }
             }
         }
     }
@@ -87,6 +102,7 @@ public class ScoreManager : MonoBehaviour
             {
                 countPlayer += 1;
                 isP1Win = false;
+                Destroy(Pad1);
                 anim1.SetTrigger("Lose");
             }
             
@@ -105,6 +121,7 @@ public class ScoreManager : MonoBehaviour
             {
                 countPlayer += 1;
                 isP2Win = false;
+                Destroy(Pad2);
                 anim2.SetTrigger("Lose");
             }
         }
@@ -123,6 +140,7 @@ public class ScoreManager : MonoBehaviour
             {
                 countPlayer += 1;
                 isP3Win = false;
+                Destroy(Pad3);
                 anim3.SetTrigger("Lose");
             }
         }
@@ -141,6 +159,7 @@ public class ScoreManager : MonoBehaviour
             {
                 countPlayer += 1;
                 isP4Win = false;
+                Destroy(Pad4);
                 anim4.SetTrigger("Lose");
             }
         }

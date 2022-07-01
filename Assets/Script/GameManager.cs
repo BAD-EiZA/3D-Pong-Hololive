@@ -43,6 +43,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (GameData.instance.isDlc == false)
+        {
+            isGameStart = true;
+        }
         if (isGameStart)
         {
             timer -= Time.deltaTime;
